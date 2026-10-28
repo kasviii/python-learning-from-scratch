@@ -33,7 +33,7 @@ if(b<babe):
         print("b is not the smallest")
 elif(babe<bebe):
     if(babe<b):
-        print("i really am the smallest")
+        print("babe really is the smallest")
     else:
         print("babe is also not the smallest")
 else:
