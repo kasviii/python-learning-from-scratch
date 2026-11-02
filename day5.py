@@ -82,9 +82,88 @@ def dog(dname):
     print("sit",dname)
 dog("swiper")
 
+#a function has four type of arguements, default, keyword, variable length and required
+#default arg
+def name(n="joe", p="Joan", r=str):
+    print(f"hi im {n} and this is {p}, r u {r}")
+name(r="Clara")#the variable with no deafult value is assigned smthing
+name(n="Clara", r="Joe")#this overwrites the default value
+name("Clara")#just assigns this to the first variable, regardless of whether it has a default value
+name("Amy", "Belle","Judas")
+name(r="Ari",p="Kacey")#this is keyword arguement, with key=value, this way interpreter recognizes arg by parameter and order doesnt matter
 
+def avg(a,b,c=2):
+    print((a+b)/2)
+#avg(b=2)#here a is a required arg so we will get an error
 
+#variable length arg = put *
+def average(*num):
+    print(type(num))
+    sum = 0
+    for i in num:
+        sum = sum + i
+    print("avg is:", sum/len(num))
+average(5,6,7,3)
+average(5,6,)
+#* made num a tuple for we can put as many entries as we like
+# similarly ** makes it a dictionary
+def name(**name):
+    print(type(name))
+    print("Hello",name["fname"],name["lname"])
+name(lname="Barnes",fname="Troy")
 
+#return statement is used to return the value of the expression back to the calling function
+def name(fname,mname,lname):
+    return "Hello" +  " " +fname +" "+ mname +" "+lname
+print(name("Ace","D","Portgas"))
 
+#list=[], can be changed but tuples cant
+marks = [9,34,2,3,54]
+#       -5,-4,-3,-2,-1
+print(marks[-3])
+print(marks[5-3])
+print(marks[len(marks)-3])
+print(marks[2])
 
+if "ha" in "harry":
+    print("yes")
 
+print(marks[2:4])#slicing
+print(marks[1:5:2])
+#list comprehensions are used for creating new lists from other iterables like lists, tuples, and even in arrays and strings
+#syntax=list= expression(item) for iten in iterable if condition
+names=["milo","niya","centaur","medusa"]
+nameswith_e = [item for item in names if "e" in item]
+print(nameswith_e)
+#eg 2
+nums = [i*i for i in range(10)]
+print(nums)
+nums = [i*i for i in range(10) if i%2==0]
+print(nums)
+#list methods
+l = [34,5462,12,35,77,54,2,56]
+print(l)
+print(l.reverse())#will give none as output but it does modify the list
+print(l)
+print(l.sort())#will give none
+print(l)
+print(l.sort(reverse=True))#will give none 
+print(l)
+print(sorted(l))#output is sorted but list has not been affected
+print(l)
+print(list(reversed(l)))#output is reversed but list is unaffected
+print(l)
+#print(l.index(1))#gives index of where value is, and this doesnt exist so gives error
+print(l.index(12))
+print(l.count(12))
+m=l.copy() #makes a copy of the list
+print(m)
+l.append(23)
+print(l)
+l.insert(2, 234)#insert 234 at index 2
+print(l)
+m=[23,43,56,67,89]
+l.extend(m)
+print(l)#modified list l by extending it
+k= l+m#if we dont want to modify, we can make a new list and give it values
+print(k)
